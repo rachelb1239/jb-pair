@@ -1,16 +1,16 @@
 const path = require('path');
 
 module.exports = {
-  entry: './client/app.jsx',
+  entry: './src/app.jsx',
   output: {
     path: path.resolve(__dirname, 'public'),
-    filename: 'bundle.js'
+    filename: 'app.js'
   },
   module: {
     rules: [
       { test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        use: ["react-hot", "babel-loader"],
+        use: "babel-loader",
        }
     ]
   }

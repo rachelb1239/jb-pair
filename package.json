@@ -4,6 +4,8 @@
   "description": "showcase some skills",
   "main": "index.js",
   "scripts": {
+    "start": "webpack --mode development --watch",
+    "build": "webpack --mode production",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -27,6 +29,7 @@
     "webpack-dev-server": "^3.8.2"
   },
   "dependencies": {
-    "react": "^16.10.2"
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2"
   }
 }
