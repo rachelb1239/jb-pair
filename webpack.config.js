@@ -1,10 +1,20 @@
 const path = require('path');
 
 module.exports = {
-  entry: './src/app.jsx',
+  entry: {
+    'app': [
+      'react-hot-loader/patch',
+      './src/index'
+    ]
+  },
+  devServer: {
+    contentBase: path.join(__dirname, 'public'),
+    compress: true,
+    port: 9001
+  },
   output: {
     path: path.resolve(__dirname, 'public'),
-    filename: 'app.js'
+    filename: '[name].js'
   },
   module: {
     rules: [

@@ -4,7 +4,7 @@
   "description": "showcase some skills",
   "main": "index.js",
   "scripts": {
-    "start": "webpack --mode development --watch",
+    "start": "webpack-dev-server --hot --history-api-fallback --open",
     "build": "webpack --mode production",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
