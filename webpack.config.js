@@ -16,6 +16,11 @@ module.exports = {
     path: path.resolve(__dirname, 'public'),
     filename: '[name].js'
   },
+  resolve: {
+    alias: {
+      'react-dom': '@hot-loader/react-dom'
+    },
+  },
   module: {
     rules: [
       { test: /\.(js|jsx)$/,
