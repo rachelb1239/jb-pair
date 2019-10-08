@@ -27,7 +27,7 @@ class App extends Component {
         <h1>Hello World!</h1>
         <Button toggleLoading={this.toggleLoading} />
         <div>
-          {this.state.buttonToggled && <FontAwesomeIcon icon={faCircleNotch} size="6x"/>}
+          {this.state.buttonToggled && <FontAwesomeIcon icon={faCircleNotch} size="6x" spin />}
         </div>
       </div>
     );
