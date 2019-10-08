@@ -49,5 +49,10 @@
     "popper.js": "^1.15.0",
     "react": "^16.10.2",
     "react-dom": "^16.10.2"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "\\.(css|less|scss)$": "<rootDir>/mocks/styleMock.js"
+    }
   }
 }

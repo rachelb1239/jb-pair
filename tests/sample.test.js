@@ -1,5 +1,19 @@
-const sum = (a, b) => a + b;
+import React from 'react';
+import { shallow, configure, mount, render } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+import App from '../src/components/app';
+import Button from '../src/components/app';
 
-test('adds 1 + 2 to equal 3', () => {
-  expect(sum(1, 2)).toBe(3);
+configure({ adapter: new Adapter() });
+
+describe('App component', () => {
+  it('renders without crashing', () => {
+     shallow(<App />);
+   });
+});
+
+describe('Button component', () => {
+  it('renders without crashing', () => {
+     shallow(<Button />);
+   });
 });

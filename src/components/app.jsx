@@ -8,7 +8,6 @@ const App = () => (
   <div>
     <h1>Hello World!</h1>
     <FontAwesomeIcon icon={faCircleNotch} size="6x"/>
-    <button type="button" className={`btn btn-primary`}>Test button</button>
   </div>
 )
 
