@@ -26,9 +26,9 @@ class Table extends Component {
     this.handleSort = this.handleSort.bind(this);
   }
 
-  handleSort() {
-    // sort by first name on click
-    const sorted =  _.sortBy(this.state.rows, ['firstName']);
+  handleSort(sortProperty = 'firstName') {
+    console.log('click', sortProperty)
+    const sorted =  _.sortBy(this.state.rows, [sortProperty]);
     this.setState({ rows: sorted });
   }
 
@@ -48,10 +48,10 @@ class Table extends Component {
       <table className="table">
         <thead>
           <tr>
-            <th onClick={this.handleSort}>
+            <th data-column="firstName" onClick={() => this.handleSort('firstName')}>
               First
             </th>
-            <th onClick={this.handleSort}>
+            <th data-column="lastName" onClick={() => this.handleSort('lastName')}>
               Last
             </th>
           </tr>
