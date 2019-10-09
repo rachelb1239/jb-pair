@@ -1,31 +1,49 @@
 import React from 'react';
-import { shallow, configure, mount, render } from 'enzyme';
+import { shallow, configure, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import App from '../src/components/App';
 import Button from '../src/components/App';
+import LoadingContainer from '../src/components/LoadingContainer';
 
 configure({ adapter: new Adapter() });
 
-const testFunction = () => true;
+const mockFunction = jest.fn(); // mock function for testing
 
-describe('App component', () => {
+// Loading Container Tests
+describe('Loading Container', () => {
   // Shallow Render
   test('should render and sets initial state for button toggle to true', () => {
-    const wrapper = shallow(<App />);
+    const wrapper = shallow(<LoadingContainer />);
     expect(wrapper.state().buttonToggled).toEqual(true);
    });
 
-   // Mount
-   test('should contain single button element', () => {
-    const wrapper = mount(<App />);
-    expect(wrapper.find('button').length).toBe(1);
-   });
+   describe('mounted component', () => {
+     
+    test('should display svg element representing icon on initial render', () => {
+      const wrapper = mount(<LoadingContainer />);
+      expect(wrapper.find('svg').length).toEqual(1);
+    });
 
+    test('should update state of buttonToggled after button click', () => {
+      const wrapper = mount(<LoadingContainer />);
+      wrapper.find('button').simulate('click');
+      expect(wrapper.state().buttonToggled).toEqual(false);
+      wrapper.find('button').simulate('click');
+      expect(wrapper.state().buttonToggled).toEqual(true);
+    });
+
+    test('should hide svg element after button click if buttonToggled is false', () => {
+      const wrapper = mount(<LoadingContainer />);
+      wrapper.find('button').simulate('click');
+      expect(wrapper.state().buttonToggled).toEqual(false);
+      expect(wrapper.find('svg').length).toEqual(0);
+    });
+   })
 });
 
+// Button Component Tests
 describe('Button component', () => {
-  const wrapper = mount(<Button toggleLoading={testFunction} />);
-  test('should have a prop toggleLoading', () => {
-    expect(wrapper.props().toggleLoading).toEqual(testFunction);
-   });
+  const wrapper = mount(<Button toggleLoading={mockFunction} />);
+  test('should have a prop toggleLoading that is a function', () => {
+    expect(wrapper.props().toggleLoading).toEqual(mockFunction);
+  });
 });
