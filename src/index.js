@@ -16,7 +16,7 @@ if (hotSwap) { // if hotSwap is enabled
     );
   }
   render(hotApp) // render app
-  if (module.hot) { // if change detected
+  if (module.hot) { // if module is hot
     module.hot.accept('./components/app.jsx', () => { render(hotApp) }) // re-render app
   }
 } else {

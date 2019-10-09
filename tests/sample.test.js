@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow, configure, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import Button from '../src/components/App';
+import Button from '../src/components/Button';
 import LoadingContainer from '../src/components/LoadingContainer';
 
 configure({ adapter: new Adapter() });
