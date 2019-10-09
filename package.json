@@ -4,7 +4,10 @@
   "description": "showcase some skills",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --hot --history-api-fallback --open",
+    "start": "node server/index.js",
+    "server-dev": "nodemon server/index.js",
+    "webpack-dev": "webpack-dev-server --hot --history-api-fallback --open",
+    "compile": "webpack --mode development --watch",
     "build": "webpack --mode production",
     "test": "jest"
   },
@@ -31,6 +34,7 @@
     "fibers": "^4.0.1",
     "jest": "^24.9.0",
     "node-sass": "^4.12.0",
+    "nodemon": "^1.19.3",
     "postcss-loader": "^3.0.0",
     "react-hot-loader": "^4.12.14",
     "sass": "^1.23.0",
@@ -45,7 +49,9 @@
     "@fortawesome/free-solid-svg-icons": "^5.11.2",
     "@fortawesome/react-fontawesome": "^0.1.5",
     "bootstrap": "^4.3.1",
+    "express": "^4.17.1",
     "jquery": "^3.4.1",
+    "lodash": "^4.17.15",
     "popper.js": "^1.15.0",
     "react": "^16.10.2",
     "react-dom": "^16.10.2"
