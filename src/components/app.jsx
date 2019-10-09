@@ -11,4 +11,8 @@ class App extends Component {
   }
 }
 
-export default hot(App);
+const hotApp = hot(App); // export hot loader version of component
+
+export {
+  hotApp, App
+};
